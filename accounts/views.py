@@ -141,7 +141,6 @@ def register(request):
                 request,
                 _('Conta criada! Verifique seu E-mail para obter o token de atentificação')
             )
-            print(f'---- You token is "{new_user.token}" ----') # TODO remover para produção
             return redirect("accounts:check_email")
 
     return render(request, 'accounts/register.html', context)
