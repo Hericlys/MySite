@@ -1,0 +1,68 @@
+
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block additional_style %}
+    <link rel="stylesheet" href="{% static "blog/css/post_detail.css" %}">
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/codemirror.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css">
+{% endblock additional_style %}
+
+{% block additional_script_top %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/codemirror.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/mode/python/python.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/mode/javascript/javascript.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/mode/css/css.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.2/mode/xml/xml.min.js"></script>
+{% endblock additional_script_top %}
+
+{% block menu_links %}
+
+{% endblock menu_links %}
+
+{% block content %}
+    <section id="posts" class="full-page centralized-content">
+        <div class="main-content">
+            <div class="post-container">
+                {% if post.cover %}
+                    <img src="{{post.cover.url}}" alt="capa do post {{post.title}}" class="img">
+                {% endif %}
+
+                <div class="post">
+                    <h1 class="post-title">{{post.title}}</h1>
+                    <div class="infos-container">
+                        <div class="infos-content">
+                            <span>Publicado em:</span>
+                            <div class="infos">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <p class="post-published_at">{{post.published_at}}</p>
+                            </div>
+                        </div>
+                        <div class="infos-content">
+                            <span>Escrito por:</span>
+                            <div class="infos">
+                                <i class="fa-solid fa-user"></i>
+                                <p class="post-author">{{post.author.first_name}} {{post.author.last_name}}</p>
+                            </div>
+                        </div>
+                        <div class="infos-content">
+                            <span>Categoria:</span>                          
+                            <div class="infos">
+                                <p class="post-category" style="background-color: {{post.category.color}};">{{post.category}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="post-description"><i class="fa-solid fa-quote-left"></i> {{post.description}} <i class="fa-solid fa-quote-right"></i></p>
+                    <div class="post-content">{{post.content | safe}}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+
+{% block additional_script %}
+    <script src="{% static "blog/js/partials/code_mirror.js" %}"></script>
+    <script src="{% static "blog/js/partials/category.js" %}"></script>
+{% endblock additional_script %}

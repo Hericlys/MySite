@@ -1,0 +1,22 @@
+<div class="post-card">
+    {% if post.cover %}
+        <img class="img" src="{{post.cover.url}}" alt="capa do post: {{post.title}}">
+    {% endif %}
+    <div class="post-content">
+        <h1 class="post-title">{{post.title}}</h1>
+        <p class="post-date"><i class="fa-solid fa-calendar-days"></i>  {{post.published_at}}</p>
+        <a href="#" class="post-author"><i class="fa-solid fa-pen"></i>  {{post.author.first_name}} {{post.author.last_name}}</a>
+        <p class="post-description">{{post.description}}...</p>
+        <div class="action-container">
+            <a href="{{post.get_absolute_url}}">
+                <button class="button" type="submit">
+                    <span class="button_lg">
+                        <span class="button_sl bg-green"></span>
+                        <span class="button_text">Ver mais</span>
+                    </span>
+                </button>
+            </a>
+            <p class="post-category" style="background-color: {{post.category.color}};">{{post.category}}</p>
+        </div>
+    </div>
+</div>

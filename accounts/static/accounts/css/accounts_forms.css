@@ -1,0 +1,38 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 25px 25px 25px;
+    border: 2px solid #5d5d5d;
+    border-top: none;
+    width: calc(100%);
+}
+
+.form-container-inputs {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-container input {
+    width: 100% !important;
+}
+
+.button {
+    margin-top: 15px;
+}
+
+.signin a {
+    color: royalblue;
+}
+
+.signin a:hover {
+    text-decoration: underline royalblue;
+}
+
+.nim-width input {
+    width: 30px !important;
+}

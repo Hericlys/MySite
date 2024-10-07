@@ -1,0 +1,30 @@
+/* paginator */
+
+.pagination span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin: 25px 0;
+}
+
+.pagination span .next, .pagination span .previous {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pagination a {
+    padding: 2px 5px;
+    background-color: var(--color-base-900);
+    border: 2px solid var(--color-base-600);
+    color: var(--color-base-400);
+    border-radius: 10px;
+}
+
+.pagination a:hover {
+    transition: all 0.3s ease;
+    color: var(--color-base-50);
+}

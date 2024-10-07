@@ -1,0 +1,12 @@
+.posts-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.post-category {
+    padding: 5px;
+    font-weight: bolder;
+    border-radius: 5px;
+}

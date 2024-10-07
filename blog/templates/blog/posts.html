@@ -1,0 +1,50 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block additional_style %}
+    <link rel="stylesheet" href="{% static "blog/css/posts.css" %}">
+    <link rel="stylesheet" href="{% static "blog/css/partials/post_card.css" %}">
+{% endblock additional_style %}
+
+{% block menu_links %}
+
+{% endblock menu_links %}
+
+{% block content %}
+    <section id="posts" class="full-page centralized-content">
+        <div class="main-content">
+            <div class="centralized-content">
+                <div class="section-header">
+                    <h2>Blog do Hericlys</h2>
+                    <p>Aqui você encontra diversas dicas e tutoriais relacionados ao mundo da programação</p>
+                </div>
+                <div class="search-container">
+                    <form action="{% url "blog:search_posts" %}" id="form_search" method="get">
+                        {% include "global/partials/search.html" %}
+                    </form>
+                </div>
+                <div class="posts-container">
+                    {% if page_obj %}
+                        {% for post in page_obj %}
+                            {% include "blog/partials/post_card.html" %}
+                        {% endfor %}
+                    {% else %}
+                        <div class="not-found text-center">
+                            <i class="fa-regular fa-face-frown icon"></i>
+                            <p class="not-found-text">{{not_found_text}}</p>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="pagination-container">
+                    {% include "global/partials/pagination.html" %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+
+{% block additional_script %}
+    <script src="{% static "blog/js/partials/category.js" %}"></script>
+    <script src="{% static 'global/js/partials/search.js' %}"></script>
+    <script src="{% static 'blog/js/posts.js' %}"></script>
+{% endblock additional_script %}

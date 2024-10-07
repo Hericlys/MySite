@@ -1,0 +1,84 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block additional_style %}
+    <link rel="stylesheet" href="{% static "Accounts/css/accounts_forms.css" %}">
+{% endblock additional_style %}
+
+{% block content %}
+<section id="register-user" class="full-page centralized-content">
+    <div class="main-content text-center">
+        <div class="section-header">
+            <h2>Register-se</h2>
+            <p>
+                Crie sua conta, rapido e facil
+            </p>
+        </div>
+        <form action="{% url "accounts:register" %}" class="form" method="post">
+            {% csrf_token %}
+            <div class="form-container-inputs">
+                <div class="inputs-container">
+                    <div class="input-group">
+
+                        <div class="input-container centralized-content">
+                            <label for="first_name">Nome</label>
+                            <input
+                                type="text" name="first_name" id="first_name" maxlength="25"
+                                minlength="2" required placeholder="Digite seu nome"
+                                value="{{form_values.first_name}}"
+                            >
+                        </div>
+    
+                        <div class="input-container centralized-content">
+                            <label for="last_name">Sobrenome</label>
+                            <input
+                                type="text" name="last_name" id="last_name" maxlength="25"
+                                minlength="2" required placeholder="Digite seu sobrenome"
+                                value="{{form_values.last_name}}"
+                            >
+                        </div>
+
+                    </div>
+      
+                    <div class="input-container centralized-content">
+                        <label for="email">E-mail</label>
+                        <input
+                            type="email" name="email" id="email" maxlength="50"
+                            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                            required placeholder="SeuMelhor@email.com"
+                            value="{{form_values.email}}"
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-container centralized-content">
+                            <label for="phone">Senha</label>
+                            <input
+                                type="password" name="password" id="password" maxlength="20"
+                                minlength="8"
+                                required placeholder="********"
+                            >
+                        </div>
+    
+                        <div class="input-container centralized-content">
+                            <label for="phone">Confirmação de senha</label>
+                            <input
+                                type="password" name="password2" id="password2" maxlength="20"
+                                minlength="8"
+                                required placeholder="********"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="button" type="submit">
+                <span class="button_lg">
+                    <span class="button_sl bg-green"></span>
+                    <span class="button_text">Registra-se</span>
+                </span>
+            </button>
+            <p class="signin">Já tem conta? <a href="accounts:login">Entrar</a></p>
+        </form>
+    </div>
+</section>
+{% endblock content %}

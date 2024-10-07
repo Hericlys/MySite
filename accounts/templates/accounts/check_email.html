@@ -1,0 +1,71 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block additional_style %}
+    <link rel="stylesheet" href="{% static "Accounts/css/accounts_forms.css" %}">
+{% endblock additional_style %}
+
+{% block content %}
+<section id="register-user" class="full-page centralized-content">
+    <div class="main-content text-center">
+        <div class="section-header">
+            <h2>Validação de E-mail</h2>
+            <p>Digite o Token de validação</p>
+        </div>
+        <form class="form" method="POST" action="{% url "accounts:check_email" %}">
+            {% csrf_token %}
+
+            <div class="input-container centralized-content">
+                <label for="email">E-mail</label>
+                <input
+                    type="email" name="email" id="email" maxlength="50"
+                    pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                    required placeholder="SeuMelhor@email.com"
+                    value="{{form_content.email}}"
+                >
+            </div>
+
+            <div class="flex">
+                <div class="input-group nim-width">
+                    <div class="input-container centralized-content">
+                        <input type="text" class="token-input input" name="d1" maxlength="1" pattern="[a-zA-Z0-9]" required>
+                    </div>
+                    <div class="input-container centralized-content">
+                        
+                        <input type="text" class="token-input input" name="d2" maxlength="1" pattern="[a-zA-Z0-9]" required>
+                    </div>
+                    <div class="input-container centralized-content">
+                        
+                        <input type="text" class="token-input input" name="d3" maxlength="1" pattern="[a-zA-Z0-9]" required>
+                    </div>
+                    <div class="input-container centralized-content">
+                        
+                        <input type="text" class="token-input input" name="d4" maxlength="1" pattern="[a-zA-Z0-9]" required>
+                    </div>
+                    <div class="input-container centralized-content">
+                        
+                        <input type="text" class="token-input input" name="d5" maxlength="1" pattern="[a-zA-Z0-9]" required>
+                    </div>
+                    <div class="input-container centralized-content">
+                        
+                        <input type="text" class="token-input input" name="d6" maxlength="1" pattern="[a-zA-Z0-9]" required>
+                    </div>
+                </div>
+            </div>  
+                    
+            <button class="button" type="submit">
+                <span class="button_lg">
+                    <span class="button_sl bg-green"></span>
+                    <span class="button_text">Validar</span>
+                </span>
+            </button>
+
+            <p class="signin">Já tem uma conta? <a href="{% url "accounts:login" %}">Entrar</a> </p>
+        </form>
+    </div>
+</section>
+{% endblock content %}
+
+{% block additional_script %}
+    <script src="{% static 'Accounts/js/check_email.js' %}"></script>
+{% endblock additional_script %}
