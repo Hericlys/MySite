@@ -36,10 +36,10 @@ class ProjectManager(models.Manager):
         get projects by search value
         """
         return self.filter(
-            Q(description__icontains=search_value) |
             Q(name__icontains=search_value) |
+            Q(description__icontains=search_value) |
             Q(technologies__name__icontains=search_value)
-        ).filter(is_published=True).order_by('-id')
+        ).filter(is_published=True).order_by('-id').distinct()
 
 
 class Project(models.Model):

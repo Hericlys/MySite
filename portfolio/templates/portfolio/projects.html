@@ -19,7 +19,7 @@
                     <p>Aqui você encontrará meus projetos, que combinam criatividade e tecnologia para entregar resultados impactantes. Explore meu portfólio e veja como transformo ideias em código eficiente."</p>
                 </div>
                 <div class="search-container">
-                    <form action="#" id="form_search" method="get">
+                    <form action="{% url "portfolio:search_projects" %}" id="form_search" method="get">
                         {% include "global/partials/search.html" %}
                     </form>
                 </div>
