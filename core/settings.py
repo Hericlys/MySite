@@ -142,13 +142,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # E-mail
-if DEBUG:
+if not DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    EMAIL_HOST = ''
-    DEFAULT_EMAIL_NOTIFICATION = 'notificationEmail@email.com'
+    EMAIL_HOST = 'super@email.com'
+    DEFAULT_EMAIL_NOTIFICATION = 'super@email.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
     EMAIL_HOST_USER = config('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
     EMAIL_USE_TLS = config('EMAIL_USE_TLS')
@@ -157,18 +156,18 @@ else:
 
 
 # Summernote
-# SUMMERNOTE_CONFIG = {
-#     'summernote': {
-#         'codemirror': {
-#             'mode': 'htmlmixed',
-#             'lineNumbers': 'true',
-#             'theme': 'dracula',
-#             'lineWarapping': 'true',
-#         },
-#     },
-#     'css': (
-#         '//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css',     # noqa: E501
-#     ),
-#     'attachment_filesize_limit': 30 * 1024 * 1024,
-#     'attachment_model': 'attachment.FilesAttachment',
-# }
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'codemirror': {
+            'mode': 'htmlmixed',
+            'lineNumbers': 'true',
+            'theme': 'dracula',
+            'lineWarapping': 'true',
+        },
+    },
+    'css': (
+        '//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css',
+    ),
+    'attachment_filesize_limit': 30 * 1024 * 1024,
+    'attachment_model': 'attachment.FilesAttachment',
+}

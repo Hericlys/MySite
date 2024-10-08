@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from utils import validators as va
 from utils.rands import random_letters
 from .models import CustomUser
-from django.core.mail import EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives, send_mail
 from django.template.loader import render_to_string
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
@@ -13,7 +13,6 @@ from django.conf import settings
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.sites.shortcuts import get_current_site
-from django.core.mail import send_mail
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
@@ -118,24 +117,7 @@ def register(request):
             new_user.save()
 
             # send e-mail
-            html_content = render_to_string(
-                'accounts/emails/check_email.html',
-                {
-                    'token': new_user.token,
-                }
-            )
-
-            text_content = strip_tags(html_content)
-
-            email = EmailMultiAlternatives(
-                'Confirmação de E-mail',
-                text_content,
-                settings.EMAIL_HOST_USER,
-                [f'{email}',]
-            )
-
-            email.attach_alternative(html_content, 'text/html')
-            email.send()
+            send_mail('Token de ativação de conta', f'{new_user.token}', 'super@email.com', [f'{email}',])
 
             messages.success(
                 request,
@@ -252,18 +234,7 @@ def password_reset(request):
             link = reverse('accounts:password_reset_confirm', kwargs={'uidb64': uid, 'token': token})
             reset_url = f'http://{current_site.domain}{link}'
             
-            email_body = render_to_string('accounts/emails/password_reset_email.html', {
-                'user': user,
-                'reset_url': reset_url
-            })
-            
-            send_mail(
-                'Redefina sua senha',
-                email_body,
-                'no-reply@seusite.com',  # De
-                [user.email],  # Para
-                fail_silently=False,
-            )
+            send_mail('Recuperação de senha', f'{reset_url}', 'super@email.com', [f'{email}',])
 
             return redirect('accounts:password_reset_done', token=user.token)
         except CustomUser.DoesNotExist:
