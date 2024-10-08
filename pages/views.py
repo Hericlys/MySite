@@ -13,7 +13,7 @@ def home(request) -> render:
             'enable_inputs_styles': True,
         }
     }
-    projects = Project.objects.get_projects()[:3]
+    projects = Project.objects.get_projects()[:2]
     
     if projects:
         context.update({'projects':projects})

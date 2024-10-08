@@ -203,7 +203,6 @@
     padding: 10px;
     border: 2px solid #5d5d5d;
     background-color: #3d3d3d;
-
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -246,21 +245,6 @@
 
 .contact-form-container button {
     margin-top: 15px;
-}
-
-#projects .main-content {
-    gap: 25px;
-
-}
-
-#projects .main-content a:hover {
-    color: #f77272;
-    transition: all 0.3s ease-in;
-}
-
-.projects-container {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 @media (max-width: 750px) {

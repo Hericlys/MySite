@@ -1,35 +1,115 @@
-.project-card{
-    width: 300px;
-    margin: 20px;
-    background-color: #3d3d3d;
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+.box {
+    border-radius: 10px;
+    position: relative;
     overflow: hidden;
-    border: 2px solid #5d5d5d;
-    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    max-width: 450px;
+    min-width: 300px;
+    max-height: 275.5px;
 }
 
-.project-card .img {
+.box img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    transform: transform 0.5s;
 }
 
-.project-name {
+.overlay {
+    height: 0;
+    width: 100%;
+    background: linear-gradient(transparent, #1c1c1c 58%);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: heigth 0.5s;
+}
+
+.overlay h3 {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5%;
+    font-size: 30px;
+    letter-spacing: 2px;
     color: var(--color-accent);
 }
 
-.project-links {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 10px 0;
+.overlay p {
+    font-size: 12px;
 }
 
-.project-links .link {
+.overlay .links {
     display: flex;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid var(--color-base-400);
-    gap: 5px;
+    gap: 15px;
+}
+
+.overlay a {
+    margin-top: 10px;
+    color: #262626;
+    text-decoration: none;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 50px;
+    text-align: center;
+    padding: 5px 15px;
+}
+
+.overlay a:hover {
+    color: var(--color-accent);
+}
+
+.box:hover img {
+    transform: scale(1.2);
+}
+
+.box:hover .overlay {
+    height: 100%;
+}
+
+.technologies-container {
+    margin: 15px auto;
+}
+
+.technologies {
+    display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px auto;
+}
+
+.technologies img {
+    width: 24px;
+    height: 24px;
+    border-radius: 0 !important;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+.dialog-box {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.container:hover .dialog-box {
+    display: block;
 }

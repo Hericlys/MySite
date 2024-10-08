@@ -17,7 +17,7 @@
             <a href="{% url "pages:home" %}#projects">projetos</a>
             <ul class="submenu">
                 <li><a href="{% url "pages:home" %}#projects">Ultimos</a></li>
-                <li><a href="{% url "portfolio:projects" %}">Todos</a></li>
+                <li><a href="{% url "portfolio:projects" %}">Portfólio</a></li>
             </ul>
         </li>
     {% endif %}
@@ -176,24 +176,21 @@
     </section>
 
     {% if projects %}
-
-        <section id="projects" class="full-page centralized-content">
-            <div class="main-content">
-                <div class="projects">
-                    <div class="section-header">
-                        <h2>Portifolio</h2>
-                        <p>
-                            Veja alguns de meus projetos mais recentes
-                        </p>
-                    </div>
-                    <div class="projects-container">
-                        {% for project in projects %}
-                            {% include "portfolio/partials/project_card.html" %}
-                        {% endfor %}
-                    </div>
+    <section id="projects" class="full-page centralized-content">
+        <div class="main-content">
+            <div class="centralized-content">
+                <div class="section-header">
+                    <h2>Projetos recentes</h2>
+                    <p>Aqui você encontra alguns de meus projetos mais recentes</p>
+                </div>
+                <div class="projects-container cards-container">
+                    {% for project in projects %}
+                        {% include "portfolio/partials/project_card.html" %}
+                    {% endfor %}
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     {% endif %}
 
     <section id="contact" class="full-page centralized-content">

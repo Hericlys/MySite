@@ -1,22 +1,32 @@
-<div class="project-card">
-    <div class="project-cover">
-        <img class="img" src="{{project.cover.url}}" alt="{{project.name}}">
-    </div>
-    <h2 class="project-name">{{project.name}}</h2>
-    <p class="project-description">{{project.description}}</p>
-    <div class="project-links">
-        {% if project.app_link %}
-            <a href="{{project.app_link}}" class="link">
-                <i class="fa-solid fa-laptop-code"></i>
-                <p>APP</p>
-            </a>
-        {% endif %}
-        {% if project.repository_link %}
-            <a href="{{project.repository_link}}" class="link">
-                <i class="fa-brands fa-github"></i>
-                <p>Code</p>
-            </a>
+<div class="box project-card">
+    <img src="{{project.cover.url}}" alt="capa do projeto {{project.name}}">
+    <div class="overlay">
+        <h3>{{project.name}}</h3>
+        <p>{{project.description}}</p>
+        <div class="links">
+            {% if project.app_link %}
+                <a href="{{project.app_link}}" target="_blank">
+                    <i class="fa-solid fa-globe"></i>  aplicação
+                </a>
+            {% endif %}
+            {% if project.repository_link %}            
+                <a href="{{project.repository_link}}" target="_blank">
+                    <i class="fa-brands fa-github"></i>  GitHub
+                </a>
+            {% endif %}
+        </div>
+        {% if project.technologies.all.exists %}
+            <div class="technologies-container">
+                <p>Tecnologias usadas:</p>
+                <div class="technologies">
+                    {% for tec in project.technologies.all %}
+                    <div class="container">
+                        <img src="{{tec.icon.url}}" alt="{{tec.name}}">
+                        <div class="dialog-box">{{tec.name}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         {% endif %}
     </div>
 </div>
-# TODO: Adicionar tecnologias ao card

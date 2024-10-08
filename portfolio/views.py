@@ -11,7 +11,7 @@ def projects(request):
     page_obj = paginator.get_page(page_number)
     context = {
         'page_settings': {
-            'name': _('Projetos'),
+            'name': _('Portfólio'),
             'enable_inputs_styles': True,
             'enable_button_styles': True,
         },

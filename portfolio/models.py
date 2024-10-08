@@ -8,12 +8,6 @@ from utils.images import resize_image
 
 class Technology(models.Model):
     name = models.CharField(max_length=50)
-    color = models.CharField(
-        max_length=7,
-        default="#FFFFFF",
-        help_text=_("Escolha uma cor em formato hexadecimal"),
-        verbose_name=_('Cor')
-    )
     icon = models.ImageField(upload_to='portfolio/tecnology/icons')
 
     def __str__(self) -> str:
@@ -73,7 +67,7 @@ class Project(models.Model):
     
     def save(self, *args, **kwargs):
         if not self.app_link and not self.repository_link:
-            self.is_publishd = False
+            self.is_published = False
 
         if not self.slug:
             self.slug = slugify_new(self.name)
