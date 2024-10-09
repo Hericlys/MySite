@@ -4,12 +4,11 @@ from utils.rands import random_letters
 from .models import CustomUser
 from django.core.mail import EmailMultiAlternatives, send_mail
 from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate, login, logout
-from django.utils.html import strip_tags
 from django.contrib import messages
-from django.conf import settings
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.sites.shortcuts import get_current_site
@@ -17,6 +16,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.auth import get_user_model
+from django.conf import settings
 
 
 token_generator = PasswordResetTokenGenerator()
@@ -233,8 +233,16 @@ def password_reset(request):
 
             link = reverse('accounts:password_reset_confirm', kwargs={'uidb64': uid, 'token': token})
             reset_url = f'http://{current_site.domain}{link}'
-            
-            send_mail('Recuperação de senha', f'{reset_url}', 'super@email.com', [f'{email}',])
+            email_context = {
+                'user_name': f'{user.first_name} {user.last_name}',
+                'reset_url': reset_url,
+            }
+            html_content = render_to_string('accounts/emails/password_reset_email.html', email_context)
+            text_content = strip_tags(html_content)
+
+            new_email = EmailMultiAlternatives('Recuperação de senha', text_content, settings.EMAIL_HOST_USER, [f'{email}',])
+            new_email.attach_alternative(html_content, 'text/html')
+            new_email.send()
 
             return redirect('accounts:password_reset_done', token=user.token)
         except CustomUser.DoesNotExist:
