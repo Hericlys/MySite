@@ -117,7 +117,17 @@ def register(request):
             new_user.save()
 
             # send e-mail
-            send_mail('Token de ativação de conta', f'{new_user.token}', 'super@email.com', [f'{email}',])
+            email_context = {
+                'user_name': f'{new_user.first_name} {new_user.last_name}',
+                'token': new_user.token,
+            }
+            html_content = render_to_string('accounts/emails/check_email.html', email_context)
+            text_content = strip_tags(html_content)
+
+            new_email = EmailMultiAlternatives('Confirmação de E-mail', text_content, settings.EMAIL_HOST_USER, [f'{email}',])
+            new_email.attach_alternative(html_content, 'text/html')
+            new_email.send()
+            
 
             messages.success(
                 request,

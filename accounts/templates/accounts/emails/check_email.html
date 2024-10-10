@@ -1,1 +1,80 @@
-<h1>Check Email</h1>
+<!-- templates/email/password_reset_email.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperação de Senha</title>
+    <style>
+        * {
+            margin: 0;
+            pading: 0;
+            box-size: border-box;
+        }
+
+        body {
+            background-color: #1e1e1e;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .title {
+            font-size: 35px;
+            margin-botton: 5px;
+        }
+
+        .title span {
+            color: #D92525;
+        }
+
+        .caption {
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        p {
+            margin: 5px 0;
+            color: #fff;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 25px 0;
+        }
+
+        .token {
+            color: #D92525;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 25px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title"><span>H</span>ericlys.<span>D</span>ev</h1>
+        <h2 class="caption">Verificação de E-mail</h2>
+        <p>Olá, {{user_name}}</p>
+        <p>Falta pouco para concluir seu cadastro, abaixo você vai encontrar o codigo de ativação da sua conta:</p>
+        <p class="token">{{token}}</p>
+        <p>Atenciosamente, <br>Equipe do Suporte da Hericlys.Dev</p>
+    </div>
+</body>
+</html>
