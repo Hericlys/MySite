@@ -55,6 +55,26 @@ textarea, select {
     gap: 25px;
 }
 
+.input_reveal-container {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-toggle {
+    padding: 0 7px;
+    background: #303030;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-toggle:focus {
+    outline: none;
+}
+
+.input-group .fa-eye, .input-group .fa-eye-slash {
+    font-size: 1.2rem;
+}
 
 /* search */
 
@@ -134,4 +154,21 @@ input[type='search']::-webkit-search-results-decoration {
 .search svg {
     width: 17px;
     margin-top: 3px;
+}
+
+.dialog-box {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.input-container:hover .dialog-box {
+    display: block;
 }

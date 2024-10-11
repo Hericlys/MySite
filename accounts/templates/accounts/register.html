@@ -11,7 +11,7 @@
         <div class="section-header">
             <h2>Register-se</h2>
             <p>
-                Crie sua conta, rapido e facil
+                Crie sua conta para ter acesso completo a nosso site, é rápido e fácil
             </p>
         </div>
         <form action="{% url "accounts:register" %}" class="form" method="post">
@@ -58,6 +58,7 @@
                                 minlength="8"
                                 required placeholder="********"
                             >
+                            <div class="dialog-box">A senha deve conter letras maiúsculas e minúsculas, números e caracteres especiais</div>
                         </div>
     
                         <div class="input-container centralized-content">

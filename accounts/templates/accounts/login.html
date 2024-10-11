@@ -28,11 +28,16 @@
 
                     <div class="input-container centralized-content">
                         <label for="phone">Senha</label>
-                        <input
-                            type="password" name="password" id="password" maxlength="20"
-                            minlength="8"
-                            required placeholder="********"
-                        >
+                        <div class="input_reveal-container">
+                            <input
+                                type="password" name="password" id="password" maxlength="20"
+                                minlength="8"
+                                required placeholder="********"
+                            >
+                            <button type="button" id="togglePassword" class="btn-toggle">
+                                <i class="fa fa-eye" id="eyeIcon"></i>
+                            </button>
+                        </div>
                     </div>
 
                 </div>
@@ -50,3 +55,7 @@
     </div>
 </section>
 {% endblock content %}
+
+{% block additional_script %}
+    <script src="{% static "accounts/js/partials/password_reveal.js" %}"></script>
+{% endblock additional_script %}
