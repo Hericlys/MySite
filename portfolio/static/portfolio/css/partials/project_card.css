@@ -113,3 +113,9 @@
 .container:hover .dialog-box {
     display: block;
 }
+
+@media (max-width: 450px) {
+    .overlay h3 {
+        font-size: 18px;
+    }
+}

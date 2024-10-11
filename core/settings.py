@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
 
 if DEBUG:
-    ALLOWED_HOSTS:list[str] = []
+    ALLOWED_HOSTS = ['*',]
 else:
     ALLOWED_HOSTS = [host for host in str(config('ALLOWED_HOSTS')).split(',')]
 

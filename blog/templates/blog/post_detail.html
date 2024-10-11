@@ -32,6 +32,8 @@
 
                 <div class="post">
                     <h1 class="post-title">{{post.title}}</h1>
+                    <p class="post-description"><i class="fa-solid fa-quote-left"></i> {{post.description}} <i class="fa-solid fa-quote-right"></i></p>
+                    <div class="post-content">{{post.content | safe}}</div>
                     <div class="infos-container">
                         <div class="infos-content">
                             <span>Publicado em:</span>
@@ -54,8 +56,6 @@
                             </div>
                         </div>
                     </div>
-                    <p class="post-description"><i class="fa-solid fa-quote-left"></i> {{post.description}} <i class="fa-solid fa-quote-right"></i></p>
-                    <div class="post-content">{{post.content | safe}}</div>
                 </div>
             </div>
         </div>

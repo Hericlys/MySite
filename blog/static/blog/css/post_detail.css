@@ -88,3 +88,30 @@ pre {
     list-style: circle;
     margin-left: 25px;
 }
+
+@media (max-width: 750px) {
+    .post-container {
+        max-width: 400px;
+    }
+
+    .img {
+        max-width: 400px;
+    }
+
+    .post-title {
+        font-size: 18px;
+    }
+
+    .post-content {
+        max-width: 400px;
+    }
+
+    .post-description {
+        font-size: 15px;
+    }
+
+    .infos-container {
+        flex-direction: column;
+    }
+
+}

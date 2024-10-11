@@ -27,61 +27,20 @@
 {% block content %}
     <section id="home" class="full-page centralized-content">
         <div class="main-content">
-            <img class="logo-img" src="{% static "global/images/logo.svg" %}" alt="logotipo, lobo vermelho">
             <div class="home-container">
+                <img class="logo-img" src="{% static "global/images/logo.svg" %}" alt="logotipo, lobo vermelho">
                 <div class="logo-container">
                     <h1 class="title"><span>H</span>ericlys.<span>D</span>ev</h1>
-                    <p class="sub-title font-code">Desenvolvimento de jogos e sistemas</p>
+                    <p class="caption font-code">Vamos juntos transformar sua ideia em realidade!</p>
                 </div>
                 <a href="#contact" class="button_container">
                     <button class="button">
-                        <span class="button_lg">
-                            <span class="button_sl bg-red"></span>
-                            <span class="button_text">Iniciar projeto</span>
+                        <span class="button_lg bg-red">
+                            <span class="button_sl bg-green"></span>
+                            <span class="button_text">Fale Sobre Sua Ideia</span>
                         </span>
                     </button>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="main-content centralized-content">
-            <div class="about">
-                <div class="about-info about_info_lef">
-                    <h2>Um pouco sobre mim:</h2>
-                    <p class="font-code">Opa! Tudo bom? Me chamo Hericlys de Sá, sou desenvolvedor a mais de 5 anos com especialidade em Python.</p>
-                    <p class="font-code">Sou apaixonado por tecnologia e inovação e por isso dedico meu tempo a ensinar novas mentes a conhecer esse mundo incrível.</p>
-                </div>
-                <div class="about-profile">
-                    <img src="{% static 'pages/images/profile.jpg' %}" alt="">
-                    <h1>Hericlys de Sá</h1>
-                    <div class="social-media">
-                        <a href="https://www.instagram.com/hericlys.dev/" target="_blank" class="instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/message/4T5NTPFN5P2OP1" target="_blank" class="whatsapp">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCLZojhcSMDBjCg1e64z6oVg" target="_blank" class="youtube">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/hericlysdesa/" target="_blank" class="linkedin">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="https://discord.com/channels/1128104019894747186" target="_blank" class="discord">
-                            <i class="fa-brands fa-discord"></i>
-                        </a>
-                    </div>
-                    <div class="split-effect">
-                    </div>
-                </div>
-                <div class="about-info about_info_right">
-                    <h2>Habilidades</h2>
-                    <p class="font-code"> -Amplo conhecimento em linguagem como Python, C#, JavaScript, SQL e outras.</p>
-                    <p class="font-code"> -Dominio de framework como Django, Unity, .Net e etc.</p>
-                    <p class="font-code"> -Comunicação simples e diretas para facilitar o entendimento com pessoas que não são da área de TI</p>
-                </div>
             </div>
         </div>
     </section>
@@ -128,8 +87,7 @@
                             <h3>Desenvolvimento Web</h3>
                             <p class="font-code">
                                 Construção de sites e aplicações web modernos e responsivos. 
-                                Nossa expertise em HTML, CSS e JavaScript garante que sua 
-                                presença online seja cativante e funcional em todos os dispositivos
+                                Nossa expertise garante que sua presença online seja cativante e funcional em todos os dispositivos
                             </p>
                         </div>
                     </div>
@@ -192,6 +150,47 @@
         </div>
     </section>
     {% endif %}
+
+    <section id="about">
+        <div class="main-content centralized-content">
+            <div class="about">
+                <div class="about-info about_info_lef">
+                    <h2>Um pouco sobre mim:</h2>
+                    <p class="font-code">Opa! Tudo bom? Me chamo Hericlys de Sá, sou desenvolvedor a mais de 5 anos com especialidade em Python.</p>
+                    <p class="font-code">Sou apaixonado por tecnologia, inovação e conhecimento por isso dedico meu tempo a ensinar novas mentes a conhecer esse mundo incrível, através do meu blog e outras redes sociais.</p>
+                </div>
+                <div class="about-profile">
+                    <img src="{% static 'pages/images/profile.jpg' %}" alt="">
+                    <h1>Hericlys de Sá</h1>
+                    <div class="social-media">
+                        <a href="https://www.instagram.com/hericlys.dev/" target="_blank" class="instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/message/4T5NTPFN5P2OP1" target="_blank" class="whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCLZojhcSMDBjCg1e64z6oVg" target="_blank" class="youtube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hericlysdesa/" target="_blank" class="linkedin">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://discord.com/channels/1128104019894747186" target="_blank" class="discord">
+                            <i class="fa-brands fa-discord"></i>
+                        </a>
+                    </div>
+                    <div class="split-effect">
+                    </div>
+                </div>
+                <div class="about-info about_info_right">
+                    <h2>Habilidades</h2>
+                    <p class="font-code"> -Amplo conhecimento em linguagem como Python, C#, JavaScript, SQL e outras.</p>
+                    <p class="font-code"> -Dominio de framework como Django, Unity, .Net e etc.</p>
+                    <p class="font-code"> -Comunicação simples e diretas para facilitar o entendimento com pessoas que não são da área de TI</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="contact" class="full-page centralized-content">
         <div class="main-content">
