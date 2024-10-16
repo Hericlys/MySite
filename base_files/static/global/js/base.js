@@ -1,3 +1,12 @@
+const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector(".menu");
+
+hamburger.addEventListener("click", () =>
+menu.classList.toggle("active"));
+
+hamburger.addEventListener("click", () =>
+hamburger.classList.toggle("active"));
+
 const headerMenu = document.querySelector('[data-header="menu"]')
 
 function AnimateMenuScroll() {

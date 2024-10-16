@@ -211,7 +211,7 @@ p {
         min-width: 100vw;
     }
 
-    .menu.active nav .menu-links {
+    .menu-links-container {
         flex-direction: column;
         gap: 25px;
     }
